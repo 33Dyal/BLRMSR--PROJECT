@@ -1,30 +1,19 @@
-import "@nomicfoundation/hardhat-toolbox";
-import dotenv from "dotenv";
-dotenv.config();
+require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config();
 
-/** @type {import('hardhat/config').HardhatUserConfig} */
-const config = {
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
   solidity: {
-    version: "0.8.28",
-    settings: {
-      evmVersion: "cancun",
-      optimizer: {
-        enabled: true,
-        runs: 200,
-      },
-    },
+    compilers: [
+      { version: "0.8.28" },  // ← for your contracts & OpenZeppelin
+      { version: "0.8.24" },  // ← fallback for OZ internals
+      { version: "0.8.20" },  // ← keep old one just in case
+    ],
   },
   networks: {
-    localhost: {
-      url: "http://127.0.0.1:8545",
-      chainId: 31337
-    },
     sepolia: {
       url: process.env.SEPOLIA_RPC_URL || "",
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
-      chainId: 11155111
-    }
+      accounts: process.env.PRIVATE_KEY ? [`0x${process.env.PRIVATE_KEY}`] : [],
+    },
   },
 };
-
-export default config;

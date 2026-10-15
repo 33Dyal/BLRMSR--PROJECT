@@ -1,0 +1,8 @@
+{
+  "DeployAllModule#LandParcel":           "0x6DF0B4885156e188b1c02534DaCD0873e0e30c8d",
+  "DeployAllModule#LandRegistry":         "0x74257b302edD0046E675033Ee2A08aD82a52fed8",
+  "DeployAllModule#LandholderIdentity":   "0x9e2A5bDd4C94bcE12FE50C2CBF2aEF220a5A5b59",
+  "DeployAllModule#StampDutyPayment":     "0xBF1F70d8ACE448B0af38475C1e75845c1Baa6dA8",
+  "DeployAllModule#TitleDeed":            "0xb82FC9Ec312e8713a3f2DD7c307a8070120AF383",
+  "DeployAllModule#LandTransferContract": "0x4FCd530e5535Bb369caE17B74eED629Fe17A63C3"
+}

@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { AuthProvider, useAuth } from "./context/AuthContext.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
@@ -11,11 +10,13 @@ function Root() {
   return isAuthenticated ? <App /> : <LoginPage />;
 }
 
-/* ── Mount ── */
+/* ── Mount ──
+   Note: StrictMode is intentionally omitted. In development it
+   double-invokes effects, which re-fires the MetaMask
+   accountsChanged listener and calls performLogout() immediately
+   after login — silently resetting isAuthenticated to false.     */
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <AuthProvider>
-      <Root />
-    </AuthProvider>
-  </StrictMode>
+  <AuthProvider>
+    <Root />
+  </AuthProvider>
 );
